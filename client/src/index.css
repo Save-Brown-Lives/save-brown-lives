@@ -1,0 +1,74 @@
+:root {
+  /* Primary Action Color (Red) - Used for buttons, links, and highlights */
+  --color-primary: #d4232b;
+
+  /* Text and Main Content Color (Black) */
+  --color-accent: #1c1c1c;
+  --color-text: var(--color-accent);
+  --color-secondary: #4a4a4a;
+
+  /* Base Background Color (White) */
+  --color-light: #ffffff;
+
+  /* Secondary Background/Container Color (Light Gray) */
+  --color-background: #c7c7c7;
+
+  --color-blue: #666699;
+}
+
+/* Example of how to use the variables */
+body {
+  background-color: var(--color-light); /* White background for the page */
+  color: var(--color-text); /* Black text */
+  margin: 0;
+  display: flex;
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-blue);
+}
+
+.logo-img {
+  max-width: 100%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  text-indent: -9999px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
