@@ -3,18 +3,20 @@
 import { useEffect, useState } from "react";
 //import components
 import Card from "../components/Card.jsx";
+import ResultCard from "../components/ResultCard.jsx";
 export default function Resources() {
-  const [legalInfo, setLegalInfo] = useState([]);
+  const [allInfo, setAllInfo] = useState([]);
+  const [filteredInfo, setFilteredInfo] = useState(allInfo);
   //formData
   const [formData, setFormData] = useState({
     zipcode: "",
   });
 
   //Declare an asynchronous arrow function to get all saved countries from the server
-  const getLegalInfo = async (zipcode) => {
+  const getAllInfo = async (zipcode) => {
     try {
       //Declare  a variable that will hold response from the GET request to /get-all-saved-countries
-      const response = await fetch(`/api/get-legal-help/${zipcode}`);
+      const response = await fetch(`/api/get-all-help/${zipcode}`);
       //Guard Clause
       if (!response.ok) {
         console.error(`Response status: ${response.status}`);
@@ -24,10 +26,10 @@ export default function Resources() {
       //Convert the response to JSON format using json() method and save it in a variable named data
       const data = await response.json();
       //print data on console
-      console.log("lawyers data ", data);
+      console.log(" data ", data);
 
       //set lawyer data using the setter function
-      setLegalInfo(data);
+      setAllInfo(data);
     } catch (error) {
       //Print error on console
       console.log("Error retrieving legal resources:" + error.message);
@@ -44,9 +46,14 @@ export default function Resources() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("zip :", formData.zipcode);
-    getLegalInfo(formData.zipcode);
+    getAllInfo(formData.zipcode);
     setFormData({ zipcode: "" });
   };
+
+  useEffect(() => {
+    setFilteredInfo(allInfo);
+  }, [allInfo]);
+
   return (
     <>
       <h2> Helpful Organizations</h2>
@@ -73,7 +80,9 @@ export default function Resources() {
         />
         <button type="submit"> Submit</button>
       </form>
-      <div className="results"></div>
+      {filteredInfo.map((info, index) => (
+        <ResultCard info={info} key={"index_" + index} />
+      ))}
     </>
   );
 }

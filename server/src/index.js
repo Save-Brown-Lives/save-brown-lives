@@ -40,7 +40,18 @@ Helper functions
 
 //getlawyers()
 const getLegalHelp = async (zipcode) => {
-  const data = await db.query("SELECT * FROM legal_firms WHERE zipcode = $1;", [
+  const data = await db.query(
+    "SELECT * FROM legal_firms WHERE zipcode = $1 AND resource_type=$2;",
+    [zipcode, "legal"]
+  );
+  console.log(data.rows);
+  return data.rows;
+};
+
+//getALLHelp()
+const getAllHelp = async (zipcode) => {
+  // get all resources at that zip code
+  const data = await db.query("SELECT * FROM resources where zipcode = $1", [
     zipcode,
   ]);
   console.log(data.rows);
@@ -57,4 +68,20 @@ app.get("/get-legal-help/:zipcode", async (req, res) => {
   //call helper function
   let lawyers = await getLegalHelp(zipcode);
   res.json(lawyers);
+});
+
+//	GET	/get-legal-help/:zipcode	Retrieves lawyer at the zipcode
+app.get("/get-legal-help/:zipcode", async (req, res) => {
+  let zipcode = req.params.zipcode;
+  //call helper function
+  let lawyers = await getLegalHelp(zipcode);
+  res.json(lawyers);
+});
+
+//	GET	/get-all-help/:zipcode	Retrieves all help at the zipcode
+app.get("/get-all-help/:zipcode", async (req, res) => {
+  let zipcode = req.params.zipcode;
+  //call helper function
+  let resources = await getAllHelp(zipcode);
+  res.json(resources);
 });
