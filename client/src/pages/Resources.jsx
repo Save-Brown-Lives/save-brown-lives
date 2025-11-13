@@ -49,8 +49,15 @@ export default function Resources() {
   };
   return (
     <>
-      <h2> Sister Organizations</h2>
-      {/* //add a list f national organizations  devoted towards rights of poc*/}
+      <h2> Helpful Organizations</h2>
+      <Card
+        aLink="https://innocenceproject.org/about/"
+        aText="Innocene Project"
+        pText="Founded in 1992 by visionary attorneys Peter Neufeld and Barry Scheck,
+          the Innocence Project has been at the forefront of criminal justice
+          reform, using DNA and other scientific advancements to prove wrongful
+          conviction."
+      />
 
       <h2>Find resources in your area : </h2>
       <form className="zip-form" onSubmit={handleSubmit}>

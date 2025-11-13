@@ -1,0 +1,14 @@
+.card a {
+  color: var(--color-blue);
+}
+
+.card a:hover {
+  color: var(--color-primary);
+}
+
+.card {
+  border: 0.08rem ridge var(--color-blue);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  margin: 1rem;
+}
