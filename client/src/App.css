@@ -11,3 +11,45 @@
 .zip-form label {
   margin-right: 0.4rem;
 }
+
+/* Base table structure */
+.disparity-table {
+  width: 100%;
+  border-collapse: collapse; /* Removes double borders */
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  color: #333; /* Dark gray text */
+}
+
+/* Table header styling */
+.disparity-table thead th {
+  background-color: #3a3a3a; /* Dark background for professional look */
+  color: #ffffff; /* White text */
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Table body row styling */
+.disparity-table tbody td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd; /* Light gray separator for readability */
+  line-height: 1.4;
+}
+
+/* Alternating row color (Zebra striping) for readability */
+.disparity-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect for interactivity */
+.disparity-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Emphasize the Disparity Ratio column */
+.disparity-table tbody td strong {
+  color: #cc0000; /* Use a stark red for emphasis/alert */
+  font-size: 1.1em;
+}

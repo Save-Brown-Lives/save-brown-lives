@@ -37,7 +37,51 @@ export default function Home() {
       <h2>Wrongful Arrests Data</h2>
       {/* barchart/graph created using dynamic data */}
       <h2>Disparity data</h2>
-      {/* table */}
+      <div className="table-display">
+        <table className="disparity-table">
+          <thead>
+            <tr>
+              <th>Crime Category</th>
+              <th>Disparity Ratio (Black vs. White)</th>
+              <th>Key Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Drug Crimes</td>
+              <td>
+                <strong>19 times</strong> more likely
+              </td>
+              <td>
+                This extreme disparity is largely driven by mass-scale police
+                scandals and fabricated cases, despite similar rates of drug use
+                across racial groups.
+              </td>
+            </tr>
+            <tr>
+              <td>Murder</td>
+              <td>
+                <strong>7.5 times</strong> more likely
+              </td>
+              <td>
+                Innocent Black defendants convicted of murder are nearly 50%
+                more likely to have had police misconduct involved in their case
+                than white defendants.
+              </td>
+            </tr>
+            <tr>
+              <td>Sexual Assault</td>
+              <td>
+                <strong>8 times</strong> more likely
+              </td>
+              <td>
+                Often connected to the high risk of cross-racial eyewitness
+                misidentification.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
