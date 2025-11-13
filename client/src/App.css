@@ -3,3 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+.zip-form {
+  padding: 1rem;
+}
+
+.zip-form label {
+  margin-right: 0.4rem;
+}
