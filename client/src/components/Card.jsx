@@ -8,7 +8,11 @@ export default function Card({ aLink, aText, pText }) {
         <p>{pText}</p>
         <p>
           {" "}
-          Find more : <a href={aLink}> {aText} </a>{" "}
+          Find more :{" "}
+          <a href={aLink} target="_blank">
+            {" "}
+            {aText}{" "}
+          </a>{" "}
         </p>
       </div>
     </>

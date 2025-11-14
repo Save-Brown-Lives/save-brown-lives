@@ -8,10 +8,16 @@
   padding: 1rem;
 }
 
-.zip-form label {
+.zip-form label,
+input {
   margin-right: 0.4rem;
 }
 
+.zip-form button {
+  background-color: var(--color-aubergine);
+  color: var(--color-opal-green);
+  font-weight: 200;
+}
 /* Base table structure */
 .disparity-table {
   width: 100%;
@@ -56,7 +62,8 @@
   font-size: 1.1em;
 }
 
-.get-help-form {
+.get-help-form,
+.get-involved {
   background-color: var(--color-opal-green);
   border: 0.1rem ridge var(--color-gray);
   padding: 1rem;
@@ -77,6 +84,7 @@ textarea {
   display: block;
 }
 
+.get-involved button,
 .get-help-form button {
   background-color: var(--color-accent);
   color: var(--color-opal-green);

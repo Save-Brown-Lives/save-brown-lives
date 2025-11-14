@@ -13,7 +13,10 @@ export default function ResultCard({ info }) {
           {info.address} {info.state} {info.city}
         </p>
         <p>
-          Find more : <a href={info.website}>{info.name}</a>
+          Find more :{" "}
+          <a href={info.website} target="_blank">
+            {info.name}
+          </a>
         </p>
       </div>
     </>

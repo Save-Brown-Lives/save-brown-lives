@@ -60,15 +60,68 @@ const getAllHelp = async (zipcode) => {
 
 //addOneClient()
 const addOneClient = async (name, city, state, email, message) => {
-  console.log("inside helper function //addOneClient()");
+  //testing : console.log("inside helper function //addOneClient()");
   console.log(name, city, state, email, message);
   const data = await db.query(
     //SQL Query should be written all in one line, using $1-$4 as placeholders for dynamic values
-    "INSERT INTO clients (name, city, state, email, message) VALUES ($1,$2,$3,$4) RETURNING *;",
+    "INSERT INTO clients (name, city, state, email, message) VALUES ($1,$2,$3,$4,$5) RETURNING *;",
     [name, city, state, email, message] // order matters here
   );
   let addedClient = data;
   console.log("addedClient : ", data);
+};
+
+// id SERIAL PRIMARY KEY,
+// name VARCHAR NOT NULL,
+// purpose VARCHAR,
+// address VARCHAR,
+// city VARCHAR,
+// state VARCHAR,
+// website VARCHAR,
+// phone_number VARCHAR(20),
+// zipcode INTEGER NOT NULL,
+// resource_type VARCHAR NOT NULL,
+// contact_name VARCHAR NOT NULL,
+// contact_email VARCHAR NOT NULL,
+// best_phone_number VARCHAR
+
+//addOneResource()
+const addOneResource = async (
+  name,
+  purpose,
+  address,
+  city,
+  state,
+  website,
+  phone,
+  zipcode,
+  resourceType,
+  contactName,
+  email,
+  contactPhone
+) => {
+  console.log("inside helper function //addOneResource()");
+  console.log(name, city, state, email);
+  const data = await db.query(
+    //SQL Query should be written all in one line, using $1-$4 as placeholders for dynamic values
+    "INSERT INTO potential_resources ( name, purpose, address, city, state, website, phone_number, zipcode, resource_type, contact_name, contact_email, best_phone_number) VALUES ($1,$2,$3,$4,$5, $6, $7, $8, $9, $10, $11, $12) RETURNING *;",
+    [
+      name,
+      purpose,
+      address,
+      city,
+      state,
+      website,
+      phone,
+      zipcode,
+      resourceType,
+      contactName,
+      email,
+      contactPhone,
+    ] // order matters here
+  );
+  let addedResource = data;
+  console.log("addedResource : ", data);
 };
 
 /*----------------------------------
@@ -104,7 +157,7 @@ app.post("/add-one-client", async (req, res) => {
   try {
     const { name, city, state, email, message } = req.body;
     console.log("POST REQUEST :", req.body);
-    //check for missing required field in the request body : id and newName
+    //check for missing required field in the request body : name, city, state, email, message
     if (!name || !city || !state || !email || !message) {
       //return error message with 400 Bad request status code, because the request was badly formed with wrong syntax.
       // All 4XX status codes are client-side errors, which means the client sent a bad request
@@ -121,4 +174,48 @@ app.post("/add-one-client", async (req, res) => {
 });
 
 //POST /add-one-resource Adds resource data to the database after resource fills in the form (get involved)
-app.post("/add-one-resource", async (req, res) => {});
+app.post("/add-one-resource", async (req, res) => {
+  try {
+    const {
+      name,
+      purpose,
+      address,
+      city,
+      state,
+      website,
+      phone,
+      zipcode,
+      resourceType,
+      contactName,
+      email,
+      contactPhone,
+    } = req.body;
+    console.log("POST REQUEST :", req.body);
+    //check for missing required field in the request body : email, contactName
+    if (!email || !contactName) {
+      //return error message with 400 Bad request status code, because the request was badly formed with wrong syntax.
+      // All 4XX status codes are client-side errors, which means the client sent a bad request
+      return res.status(400).send("Error : Missing required fields!");
+    } else {
+      //call helper function
+      let result = await addOneResource(
+        name,
+        purpose,
+        address,
+        city,
+        state,
+        website,
+        phone,
+        zipcode,
+        resourceType,
+        contactName,
+        email,
+        contactPhone
+      );
+      console.log(result);
+      res.status(200).send("Success, resource was added");
+    }
+  } catch (error) {
+    res.status(500).send("Internal Server Error!");
+  }
+});

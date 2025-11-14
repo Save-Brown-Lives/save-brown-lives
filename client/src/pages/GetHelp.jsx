@@ -12,7 +12,6 @@ export default function GetHelp() {
   };
   //Declare a formData variable and assign it the value of the emptyFormState variable using useState. Also declare the setter/updater function setFormData
   const [formData, setFormData] = useState(emptyFormState);
-  const [userFormInfo, setUserFormInfo] = useState(null);
   //Declare an event handler arrow function handleChange to handle changes in form input
   const handleChange = (e) => {
     //this function handles changes in the form input and updates the value of formData with each and every keystroke
@@ -25,11 +24,9 @@ export default function GetHelp() {
     //this function handles form submit when the user clicks the submit button
     //prevent default form behavior
     event.preventDefault();
-    //update the user's info using the setter function
-    setUserFormInfo(formData);
     //print formData on console
     console.log("formData", formData);
-    //Send POST request to store form data in API on the server in function addOneUser()
+    //Send POST request to store form data in API on the server in function addOneClient()
     addOneClient();
     //resets the form to its initial state so it is ready for the next user using the setter method
     setFormData(emptyFormState);
@@ -78,13 +75,13 @@ export default function GetHelp() {
         </p>
         <p>
           <input
-            name="fullName"
+            name="name"
             id="fullName"
             value={formData.name}
             type="text"
             placeholder="Full Name"
             onChange={handleChange}
-          />{" "}
+          />
         </p>
         <p>
           {" "}

@@ -3,5 +3,13 @@
 }
 
 .result-card h3 {
-  color: var(--color-opal-green);
+  color: var(--color-primary);
+}
+
+.result-card a {
+  color: var(--color-aubergine);
+}
+
+.result-card a:hover {
+  color: var(--color-blue);
 }
