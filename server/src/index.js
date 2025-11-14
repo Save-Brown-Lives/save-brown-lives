@@ -5,7 +5,7 @@
 //Importing all of our node modules
 import express from "express"; // the framework that lets us build webservers
 import pg from "pg";
-import config from "./config.js"; //importing the connection string to our database hosted on NEON
+//import config from "./config.js"; //importing the connection string to our database hosted on NEON
 
 //connecting to our PostgreSQL database , or db for short
 const db = new pg.Pool({
