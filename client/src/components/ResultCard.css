@@ -1,0 +1,7 @@
+.result-card {
+  margin: 1rem;
+}
+
+.result-card h3 {
+  color: var(--color-opal-green);
+}

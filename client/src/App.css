@@ -23,8 +23,10 @@
 
 /* Table header styling */
 .disparity-table thead th {
-  background-color: #3a3a3a; /* Dark background for professional look */
-  color: #ffffff; /* White text */
+  background-color: var(
+    --color-accent
+  ); /* Dark background for professional look */
+  color: var(--color-light); /* White text */
   padding: 12px 15px;
   text-align: left;
   font-weight: bold;
@@ -34,7 +36,7 @@
 /* Table body row styling */
 .disparity-table tbody td {
   padding: 12px 15px;
-  border-bottom: 1px solid #ddd; /* Light gray separator for readability */
+  border-bottom: 1px solid var(--color-gray); /* Light gray separator for readability */
   line-height: 1.4;
 }
 
@@ -50,6 +52,37 @@
 
 /* Emphasize the Disparity Ratio column */
 .disparity-table tbody td strong {
-  color: #cc0000; /* Use a stark red for emphasis/alert */
+  color: var(--color-primary); /* Use a stark red for emphasis/alert */
   font-size: 1.1em;
+}
+
+.get-help-form {
+  background-color: var(--color-opal-green);
+  border: 0.1rem ridge var(--color-gray);
+  padding: 1rem;
+  margin: 0.2rem;
+  width: 80%;
+}
+
+.get-help-form label {
+  color: var(--color-aubergine);
+  font-weight: bold;
+}
+.get-help-form input,
+select,
+textarea {
+  width: 80%;
+}
+.get-help-form textarea {
+  display: block;
+}
+
+.get-help-form button {
+  background-color: var(--color-accent);
+  color: var(--color-opal-green);
+  display: block;
+  font-weight: 100;
+  padding: 0.1rem;
+  margin: 1rem;
+  width: 80%;
 }

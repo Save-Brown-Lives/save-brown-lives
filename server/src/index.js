@@ -58,6 +58,19 @@ const getAllHelp = async (zipcode) => {
   return data.rows;
 };
 
+//addOneClient()
+const addOneClient = async (name, city, state, email, message) => {
+  console.log("inside helper function //addOneClient()");
+  console.log(name, city, state, email, message);
+  const data = await db.query(
+    //SQL Query should be written all in one line, using $1-$4 as placeholders for dynamic values
+    "INSERT INTO clients (name, city, state, email, message) VALUES ($1,$2,$3,$4) RETURNING *;",
+    [name, city, state, email, message] // order matters here
+  );
+  let addedClient = data;
+  console.log("addedClient : ", data);
+};
+
 /*----------------------------------
 API Endpoints
 ----------------------------------*/
@@ -85,3 +98,27 @@ app.get("/get-all-help/:zipcode", async (req, res) => {
   let resources = await getAllHelp(zipcode);
   res.json(resources);
 });
+
+//POST /add-one-client Adds client data to the database after client fills in the form (get help)
+app.post("/add-one-client", async (req, res) => {
+  try {
+    const { name, city, state, email, message } = req.body;
+    console.log("POST REQUEST :", req.body);
+    //check for missing required field in the request body : id and newName
+    if (!name || !city || !state || !email || !message) {
+      //return error message with 400 Bad request status code, because the request was badly formed with wrong syntax.
+      // All 4XX status codes are client-side errors, which means the client sent a bad request
+      return res.status(400).send("Error : Missing required fields!");
+    } else {
+      //call helper function
+      let result = await addOneClient(name, city, state, email, message);
+      console.log(result);
+      res.status(200).send("Success, client was added");
+    }
+  } catch (error) {
+    res.status(500).send("Internal Server Error!");
+  }
+});
+
+//POST /add-one-resource Adds resource data to the database after resource fills in the form (get involved)
+app.post("/add-one-resource", async (req, res) => {});
