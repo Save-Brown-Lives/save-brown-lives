@@ -4,11 +4,11 @@
 
 ## Overview
 
-| Resource    | Method | Endpoint              | Description                                               |
-| ----------- | ------ | --------------------- | --------------------------------------------------------- |
-| `resources` | GET    | /get-all-help/zipcode | Retrieves all resources at the zipcode from the database. |
-| `clients`   | POST   | /add-one-client       | Adds a new client to the database.                        |
-| `leads`     | POST   | /add-one-lead         | Adds a new lead to the database                           |
+| Resource              | Method | Endpoint              | Description                                               |
+| --------------------- | ------ | --------------------- | --------------------------------------------------------- |
+| `resources`           | GET    | /get-all-help/zipcode | Retrieves all resources at the zipcode from the database. |
+| `clients`             | POST   | /add-one-client       | Adds a new client to the database.                        |
+| `potential_resources` | POST   | /add-one-resource     | Adds a potential resource to the database                 |
 
 ## resources
 
@@ -56,6 +56,17 @@
 ### 🔹 POST `/add-one-client`
 
 **Description:** Adds one client to the database
+**Request Body:**
+
+```json
+{
+  "name": "Ahemed Arbery",
+  "city": "Brunswick",
+  "state": "CA",
+  "email": "arbery.ahmed@yahoo.in",
+  "message": "End hatred and let people live."
+}
+```
 
 **Response:**
 
@@ -65,22 +76,35 @@ Success! Client has been added.
 
 ---
 
-## leads
+## potential_resources
 
-### 🔹 POST `/add-one-lead`
+### 🔹 POST `/add-one-resoource`
 
-**Description:** Adds a new lead to the leads table.
+**Description:** Adds a potential resource to the leads table.
 
 **Request Body:**
 
 ```json
-
+{
+  "name": "Money support",
+  "purpose": "Help people",
+  "address": "121 Main St.",
+  "city": "San Francisco",
+  "state": "CA",
+  "website": "support.com",
+  "phone": "902-121-1237",
+  "zipcode": "90210",
+  "resourceType": "Medical",
+  "contactName": "Charlie",
+  "email": "ck@gmail.com",
+  "contactPhone": "902-112-3124"
+}
 ```
 
 **Response:**
 
 ```
-Success! Lead has been added.
+Success! Resource has been added.
 ```
 
 ---
