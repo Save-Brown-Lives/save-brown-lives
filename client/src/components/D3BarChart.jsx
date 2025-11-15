@@ -7,7 +7,7 @@ const D3BarChart = () => {
 
   useEffect(() => {
     // 2. Load data from the public directory
-    d3.json("../public/data.json")
+    d3.json("/data.json")
       .then((data) => {
         if (!data || data.length === 0) {
           console.warn("Data is empty or failed to load.");
