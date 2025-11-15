@@ -66,6 +66,7 @@ input {
 .get-involved {
   background-color: var(--color-opal-green);
   border: 0.1rem ridge var(--color-gray);
+  border-radius: 0.3rem;
   padding: 1rem;
   margin: 0.2rem;
   width: 80%;

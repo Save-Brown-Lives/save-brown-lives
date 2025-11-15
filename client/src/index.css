@@ -58,6 +58,7 @@ a:hover {
 header {
   background-color: var(--color-aubergine);
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   gap: 1rem;
@@ -88,12 +89,12 @@ nav ul li a:hover {
 
 h1 {
   color: var(--color-opal-green);
-  font-size: 3.2em;
+  font-size: medium;
   line-height: 1.1;
 }
 
 h1:hover {
-  color: var(--color-aubergine);
+  color: var(--color-highlight);
 }
 
 main {
@@ -125,14 +126,21 @@ main {
     justify-content: center;
   }
   h1 {
-    font-size: xx-large;
+    font-size: x-large;
+  }
+  nav ul li a {
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 1025px) {
-  /* 
-temporrY */
-  body {
-    background-color: red;
+  .logo-img {
+    max-width: 30%;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  nav ul li a {
+    font-size: 1.5rem;
   }
 }
