@@ -30,5 +30,5 @@ Database: postgreSQL
 
 Bakari Roscoe
 Makeba Cappiello
-Chigö
+Chigö Ozor
 Rucha Nimbalkar
