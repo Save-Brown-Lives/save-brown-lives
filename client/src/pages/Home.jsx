@@ -1,4 +1,7 @@
 // pages/Home.jsx
+//import components
+import "../components/D3BarChart.jsx";
+import D3BarChart from "../components/D3BarChart.jsx";
 export default function Home() {
   return (
     <>
@@ -36,6 +39,7 @@ export default function Home() {
 
       <h2>Wrongful Arrests Data</h2>
       {/* barchart/graph created using dynamic data */}
+      <D3BarChart />
       <h2>Disparity data</h2>
       <div className="table-display">
         <table className="disparity-table">
