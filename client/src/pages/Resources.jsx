@@ -59,7 +59,7 @@ export default function Resources() {
       <h2> Helpful Organizations</h2>
       <Card
         aLink="https://innocenceproject.org/about/"
-        aText="Innocene Project"
+        aText="Innocence Project"
         pText="Founded in 1992 by visionary attorneys Peter Neufeld and Barry Scheck,
           the Innocence Project has been at the forefront of criminal justice
           reform, using DNA and other scientific advancements to prove wrongful
