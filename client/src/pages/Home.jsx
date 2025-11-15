@@ -9,7 +9,7 @@ export default function Home() {
       </p>
 
       <h2> The Unjust Burden on Black and Latinx Lives </h2>
-      <ul>
+      <ul className="list">
         <li>
           <strong>Arrest:</strong> In 2020, Black Americans were targeted for
           arrest at more than double the rate of white Americans.

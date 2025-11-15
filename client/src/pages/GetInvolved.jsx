@@ -30,6 +30,7 @@ export default function GetInvolved() {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
+  //Resource : https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
   const handleOnChange = (position) => {
     //tracking checked resources here
     const updatedCheckedState = checkedState.map((item, index) =>

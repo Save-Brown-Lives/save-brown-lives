@@ -4,7 +4,6 @@
 
   /* Text and Main Content Color (Black) */
   --color-accent: #1c1c1c;
-  --color-text: var(--color-accent);
   --color-secondary: #4a4a4a;
 
   /* Base Background Color (White) */
@@ -18,11 +17,13 @@
   --color-opal-green: #b7cec6;
   --color-aubergine: #472f4f;
   --color-pear: #d1e231;
+  --color-highlight: #fffee0;
+  --color-dark-subtle: #a52a2a;
 }
 
 /* Example of how to use the variables */
 body {
-  background-color: var(--color-light); /* White background for the page */
+  background-color: var(--color-highlight); /* White background for the page */
   color: var(--color-text); /* Black text */
   margin: 0;
   display: flex;
@@ -70,7 +71,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--color-aubergine);
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -79,6 +80,7 @@ nav ul li a:hover {
 }
 
 h1 {
+  color: var(--color-opal-green);
   font-size: 3.2em;
   line-height: 1.1;
 }

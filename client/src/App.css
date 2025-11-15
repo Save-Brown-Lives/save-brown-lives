@@ -48,7 +48,7 @@ input {
 
 /* Alternating row color (Zebra striping) for readability */
 .disparity-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: var(--color-opal-green);
 }
 
 /* Hover effect for interactivity */
@@ -93,4 +93,12 @@ textarea {
   padding: 0.1rem;
   margin: 1rem;
   width: 80%;
+}
+
+.list {
+  list-style-type: square;
+}
+
+.list li {
+  padding-top: 0.3rem;
 }
