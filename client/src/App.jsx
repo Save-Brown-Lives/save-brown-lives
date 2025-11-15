@@ -12,9 +12,11 @@ function App() {
     <>
       <div>
         <header>
-          <img className="logo-img" src="/sbl-logo.png" alt="logo" />
+          <div className="logo-and-h1">
+            <img className="logo-img" src="/sbl-logo.png" alt="logo" />
 
-          <h1>Save Brown Lives</h1>
+            <h1>Save Brown Lives</h1>
+          </div>
           <nav>
             <ul>
               <li>

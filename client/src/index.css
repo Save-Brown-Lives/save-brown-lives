@@ -50,14 +50,17 @@ a:hover {
   text-indent: -9999px;
 }
 
+.logo-and-h1 {
+  display: flex;
+  align-items: flex-end;
+}
+
 header {
   background-color: var(--color-aubergine);
   display: flex;
-  flex-direction: row;
-  flex-flow: nowrap;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1.5rem;
   margin: 0;
 }
@@ -104,7 +107,32 @@ main {
 1201px and more —  Extra large screens, TV */
 /*min-width 481px and more*/
 @media (min-width: 481px) {
+  .logo-img {
+    width: 40%;
+    height: 40%;
+  }
+  header {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-end;
+    align-items: end;
+  }
+  .logo-and-h1 {
+    justify-content: center;
+  }
   nav ul {
     flex-direction: row;
+    justify-content: center;
+  }
+  h1 {
+    font-size: xx-large;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* 
+temporrY */
+  body {
+    background-color: red;
   }
 }
