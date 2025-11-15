@@ -55,7 +55,7 @@ export default function Resources() {
   }, [allInfo]);
 
   return (
-    <>
+    <main>
       <h2> Helpful Organizations</h2>
       <Card
         aLink="https://innocenceproject.org/about/"
@@ -83,6 +83,6 @@ export default function Resources() {
       {filteredInfo.map((info, index) => (
         <ResultCard info={info} key={"index_" + index} />
       ))}
-    </>
+    </main>
   );
 }

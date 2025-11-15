@@ -4,7 +4,7 @@ import "../components/D3BarChart.jsx";
 import D3BarChart from "../components/D3BarChart.jsx";
 export default function Home() {
   return (
-    <>
+    <main>
       <h2>About SBL (Save Brown Lives) </h2>
       <p>
         SBL is a a centralized organization to stop/reduce wrongful arrests and
@@ -86,6 +86,6 @@ export default function Home() {
           </tbody>
         </table>
       </div>
-    </>
+    </main>
   );
 }

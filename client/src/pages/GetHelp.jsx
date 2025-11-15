@@ -61,7 +61,7 @@ export default function GetHelp() {
     console.log("response from post method: ", responseInJSONFormat);
   };
   return (
-    <>
+    <main>
       <h2> Get help now</h2>
       <p>
         If you or someone you know have been wrongfully arrested, you can find
@@ -193,6 +193,6 @@ export default function GetHelp() {
           Submit{" "}
         </button>
       </form>
-    </>
+    </main>
   );
 }
