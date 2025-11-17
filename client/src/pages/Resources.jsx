@@ -65,6 +65,11 @@ export default function Resources() {
           reform, using DNA and other scientific advancements to prove wrongful
           conviction."
       />
+      <Card
+        aLink="https://naacp.org/"
+        aText="National Association for the Advancement of Colored People (NAACP)"
+        pText="The National Association for the Advancement of Colored People (NAACP) is an American civil rights organization formed in 1909 as an interracial endeavor to advance justice for African Americans by a group including W. E. B. Du Bois, Mary White Ovington, Moorfield Storey, Ida B. Wells, Lillian Wald, Emil G. Hirsch and Henry Moskowitz. Over the years, leaders of the organization have included Thurgood Marshall and Roy Wilkins. The NAACP is the largest and oldest civil rights group in America."
+      />
 
       <h2>Find resources in your area : </h2>
       <form className="zip-form" onSubmit={handleSubmit}>
