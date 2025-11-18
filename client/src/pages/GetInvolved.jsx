@@ -1,5 +1,7 @@
 //Import useState from react
 import { useState } from "react";
+//Import Components
+import Button from "../components/Button.jsx";
 // pages/GetInvolved.jsx
 export default function GetInvolved() {
   const [message, setMessage] = useState("");
@@ -25,7 +27,7 @@ export default function GetInvolved() {
   //Declare a formData variable and assign it the value of the emptyFormState variable using useState. Also declare the setter/updater function setFormData
   const [formData, setFormData] = useState(emptyFormState);
 
-  const handleClick = () => {
+  const handleReset = () => {
     setMessage("");
     //resets the form to its initial state so it is ready for the next user using the setter method
     setFormData(emptyFormState);
@@ -116,7 +118,9 @@ export default function GetInvolved() {
 
       <div className="form-div">
         <p className="result-text">{message}</p>
-        {message && <button onClick={handleClick}> Reset Form</button>}
+        {message && (
+          <Button handleClick={handleReset} buttonText="Reset Form" />
+        )}
         <form className="get-involved">
           <h3> Find help now </h3>
           <p>

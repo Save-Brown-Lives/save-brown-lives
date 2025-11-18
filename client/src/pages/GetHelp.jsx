@@ -1,5 +1,7 @@
 //Import useState from react
 import { useState } from "react";
+//Import Components
+import Button from "../components/Button.jsx";
 // pages/GetHelp.jsx
 export default function GetHelp() {
   const [message, setMessage] = useState("");
@@ -63,7 +65,7 @@ export default function GetHelp() {
     console.log("response from post method: ", responseInJSONFormat);
   };
 
-  const handleClick = () => {
+  const handleReset = () => {
     setMessage("");
     //resets the form to its initial state so it is ready for the next user using the setter method
     setFormData(emptyFormState);
@@ -78,7 +80,9 @@ export default function GetHelp() {
       </p>
       <div className="form-div">
         <p className="result-text"> {message} </p>
-        {message && <button onClick={handleClick}> Reset Form</button>}
+        {message && (
+          <Button handleClick={handleReset} buttonText="Reset Form" />
+        )}
         <form className="get-help-form">
           <h3> Find help now </h3>
           <p>
