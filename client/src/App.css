@@ -119,3 +119,8 @@ textarea {
   font-weight: bold;
   padding: 0.2rem;
 }
+
+.badge-img {
+  border-radius: 5rem;
+  max-width: 50%;
+}
