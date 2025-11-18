@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 //import pages
 import Home from "./pages/Home";
+import About from "./pages/About";
 import GetHelp from "./pages/GetHelp";
 import GetInvolved from "./pages/GetInvolved";
 import Resources from "./pages/Resources";
@@ -23,6 +24,9 @@ function App() {
                 <Link to="/">Home</Link>
               </li>
               <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
                 <Link to="/resources">Resources</Link>
               </li>
               <li>
@@ -37,6 +41,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/gethelp" element={<GetHelp />} />
           <Route path="/getinvolved" element={<GetInvolved />} />
