@@ -112,3 +112,10 @@ textarea {
   text-decoration: underline;
   margin: 0.3rem;
 }
+
+.form-div button {
+  background-color: var(--color-blue);
+  color: var(--color-light);
+  font-weight: bold;
+  padding: 0.2rem;
+}
