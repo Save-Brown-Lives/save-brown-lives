@@ -6,6 +6,7 @@ import Card from "../components/Card.jsx";
 import ResultCard from "../components/ResultCard.jsx";
 export default function Resources() {
   const [allInfo, setAllInfo] = useState([]);
+  const [message, setMessage] = useState("");
   const [filteredInfo, setFilteredInfo] = useState(allInfo);
   //formData
   const [formData, setFormData] = useState({
@@ -30,6 +31,9 @@ export default function Resources() {
 
       //set lawyer data using the setter function
       setAllInfo(data);
+      if (allInfo.length <= 0) {
+        setMessage("Sorry no result for the entered zipcode.");
+      }
     } catch (error) {
       //Print error on console
       console.log("Error retrieving legal resources:" + error.message);
@@ -70,7 +74,6 @@ export default function Resources() {
         aText="National Association for the Advancement of Colored People (NAACP)"
         pText="The National Association for the Advancement of Colored People (NAACP) is an American civil rights organization formed in 1909 as an interracial endeavor to advance justice for African Americans by a group including W. E. B. Du Bois, Mary White Ovington, Moorfield Storey, Ida B. Wells, Lillian Wald, Emil G. Hirsch and Henry Moskowitz. Over the years, leaders of the organization have included Thurgood Marshall and Roy Wilkins. The NAACP is the largest and oldest civil rights group in America."
       />
-
       <h2>Find resources in your area : </h2>
       <form className="zip-form" onSubmit={handleSubmit}>
         <label htmlFor="zipcode">Zip Code</label>
@@ -85,9 +88,11 @@ export default function Resources() {
         />
         <button type="submit"> Submit</button>
       </form>
-      {filteredInfo.map((info, index) => (
-        <ResultCard info={info} key={"index_" + index} />
-      ))}
+      {filteredInfo &&
+        filteredInfo.map((info, index) => (
+          <ResultCard info={info} key={"index_" + index} />
+        ))}
+      <p> {message} </p>
     </main>
   );
 }
