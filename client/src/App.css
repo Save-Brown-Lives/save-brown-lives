@@ -103,3 +103,12 @@ textarea {
 .list li {
   padding-top: 0.3rem;
 }
+
+.result-text {
+  color: var(--color-aubergine);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 200;
+  text-decoration: underline;
+  margin: 0.3rem;
+}

@@ -67,7 +67,7 @@ const addOneClient = async (name, city, state, email, message) => {
     [name, city, state, email, message] // order matters here
   );
   let addedClient = data;
-  console.log("addedClient : ", data);
+  console.log("addedClient : ", addedClient);
 };
 
 // id SERIAL PRIMARY KEY,

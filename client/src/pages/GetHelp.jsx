@@ -2,6 +2,7 @@
 import { useState } from "react";
 // pages/GetHelp.jsx
 export default function GetHelp() {
+  const [message, setMessage] = useState("");
   //Declare an emptyFormState variable of type object to reset the form data
   const emptyFormState = {
     name: "",
@@ -28,8 +29,9 @@ export default function GetHelp() {
     console.log("formData", formData);
     //Send POST request to store form data in API on the server in function addOneClient()
     addOneClient();
-    //resets the form to its initial state so it is ready for the next user using the setter method
-    setFormData(emptyFormState);
+    setMessage(
+      "We have received your information. We will be in touch with you shortly."
+    );
   };
 
   //Declare an arrow function addOneClient that is asynchronus and sends user data to be stored on the server
@@ -60,6 +62,12 @@ export default function GetHelp() {
     const responseInJSONFormat = await response.json();
     console.log("response from post method: ", responseInJSONFormat);
   };
+
+  const handleClick = () => {
+    setMessage("");
+    //resets the form to its initial state so it is ready for the next user using the setter method
+    setFormData(emptyFormState);
+  };
   return (
     <main>
       <h2> Get help now</h2>
@@ -68,131 +76,135 @@ export default function GetHelp() {
         resources in your city on the resources page. If there are no resources
         in your city, please fill out the form below to get support.
       </p>
-      <form className="get-help-form">
-        <h3> Find help now </h3>
-        <p>
-          <label htmlFor="fullName"> Your name </label>
-        </p>
-        <p>
-          <input
-            name="name"
-            id="fullName"
-            value={formData.name}
-            type="text"
-            placeholder="Full Name"
+      <div className="form-div">
+        <p className="result-text"> {message} </p>
+        {message && <button onClick={handleClick}> Reset Form</button>}
+        <form className="get-help-form">
+          <h3> Find help now </h3>
+          <p>
+            <label htmlFor="fullName"> Your name </label>
+          </p>
+          <p>
+            <input
+              name="name"
+              id="fullName"
+              value={formData.name}
+              type="text"
+              placeholder="Full Name"
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            {" "}
+            <label htmlFor="city"> City you are in </label>
+          </p>
+          <p>
+            <input
+              name="city"
+              id="city"
+              value={formData.city}
+              type="text"
+              placeholder="City"
+              onChange={handleChange}
+            />{" "}
+          </p>
+          <p>
+            {" "}
+            <label htmlFor="state">State you are in </label>
+          </p>
+          <p>
+            <select
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+            >
+              <option defaultValue="">-- Select a State --</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </p>
+
+          <p>
+            {" "}
+            <label htmlFor="email"> Email address </label>
+          </p>
+          <p>
+            <input
+              name="email"
+              id="email"
+              value={formData.email}
+              type="email"
+              onChange={handleChange}
+            />{" "}
+          </p>
+          <label htmlFor="message">
+            {" "}
+            Describe in detail about your situation{" "}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            rows="4"
             onChange={handleChange}
           />
-        </p>
-        <p>
-          {" "}
-          <label htmlFor="city"> City you are in </label>
-        </p>
-        <p>
-          <input
-            name="city"
-            id="city"
-            value={formData.city}
-            type="text"
-            placeholder="City"
-            onChange={handleChange}
-          />{" "}
-        </p>
-        <p>
-          {" "}
-          <label htmlFor="state">State you are in </label>
-        </p>
-        <p>
-          <select
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            required
-          >
-            <option defaultValue="">-- Select a State --</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-          </select>
-        </p>
-
-        <p>
-          {" "}
-          <label htmlFor="email"> Email address </label>
-        </p>
-        <p>
-          <input
-            name="email"
-            id="email"
-            value={formData.email}
-            type="email"
-            onChange={handleChange}
-          />{" "}
-        </p>
-        <label htmlFor="message">
-          {" "}
-          Describe in detail about your situation{" "}
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          rows="4"
-          onChange={handleChange}
-        />
-        <button type="submit" onClick={handleSubmit}>
-          {" "}
-          Submit{" "}
-        </button>
-      </form>
+          <button type="submit" onClick={handleSubmit}>
+            {" "}
+            Submit{" "}
+          </button>
+        </form>
+      </div>
     </main>
   );
 }
