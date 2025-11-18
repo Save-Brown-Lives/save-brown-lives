@@ -37,7 +37,7 @@ export default function About() {
             aText="Rucha Nimbalkar"
             pText="I am a full stack developer and I think empathy is very natural to human beings. Hate is unnatural."
           />
-          <div>
+          <div className="gdi-div">
             <h3>Third Place in GDI hackathon</h3>
             <p>
               The Judges of GDI appreciated the project and awarded it third

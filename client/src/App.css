@@ -120,7 +120,13 @@ textarea {
   padding: 0.2rem;
 }
 
+.gdi-div {
+  text-align: center;
+}
 .badge-img {
+  border: 0.13rem solid var(--color-primary);
+  box-shadow: -0.2rem -0.4rem var(--color-gray),
+    0.2rem 0.4rem var(--color-aubergine);
   border-radius: 5rem;
-  max-width: 50%;
+  width: 10rem;
 }
