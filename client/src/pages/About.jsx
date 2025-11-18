@@ -35,7 +35,7 @@ export default function About() {
           <Card
             aLink=""
             aText="Rucha Nimbalkar"
-            pText="I am a full stack developer and I think empathy is very natural to human beings. Hate is unnatural."
+            pText="I am a full stack developer and I want to use my skills to help others."
           />
           <div className="gdi-div">
             <h3>Third Place in GDI hackathon</h3>
