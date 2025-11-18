@@ -28,7 +28,7 @@ Database: postgreSQL
 
 ## 🙌 Credits
 
-Bakari Roscoe
-Makeba Cappiello
-Chigö Ozor
+Bakari Roscoe |
+Makeba Cappiello |
+Chigö Ozor |
 Rucha Nimbalkar
