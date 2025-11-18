@@ -33,7 +33,7 @@ export default function About() {
           <Card aLink="" aText="Bakari Roscoe" pText="" />
           <Card aLink="" aText="Chigö Ozor" pText="" />
           <Card
-            aLink=""
+            aLink="https://www.linkedin.com/in/ruchanimbalkar/"
             aText="Rucha Nimbalkar"
             pText="I am a full stack developer and I want to use my skills to help others."
           />
