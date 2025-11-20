@@ -31,7 +31,11 @@ export default function About() {
           code—I imagine what’s possible"
           />
           <Card aLink="" aText="Bakari Roscoe" pText="" />
-          <Card aLink="" aText="Chigö Ozor" pText="" />
+          <Card
+            aLink="https://www.linkedin.com/in/chigozie-amara-ozor"
+            aText="Chigö Ozor"
+            pText=""
+          />
           <Card
             aLink="https://www.linkedin.com/in/ruchanimbalkar/"
             aText="Rucha Nimbalkar"
